@@ -9,6 +9,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -21,7 +22,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.example.bmicalc.R
 import kotlin.math.pow
 
@@ -31,9 +31,7 @@ fun ResultsScreen(num1: String?, num2: String?) {
 
     var result by rememberSaveable { mutableStateOf(0.0) }
 
-
-
-    result = (num1!!.toDouble() / ((num2!!.toDouble() / 100).pow(2.0)))
+    result = BmiCalc(num1, num2)
 
 //    result = if (num1.isNotEmpty() and num2.isNotEmpty()) {
 //        (num1.toDouble() / ((num2.toDouble() / 100).pow(2.0)))
@@ -42,7 +40,6 @@ fun ResultsScreen(num1: String?, num2: String?) {
 //    } else {
 //        0.0
 //    }
-
 
     when(result) {
         in 0.1 .. 18.5 -> {
@@ -97,6 +94,14 @@ fun ResultsScreen(num1: String?, num2: String?) {
     }
 
 }
+
+// формула ИМТ
+fun BmiCalc(num1: String?, num2: String?): Double {
+
+    return (num1!!.toDouble() / ((num2!!.toDouble() / 100).pow(2.0)))
+
+}
+
 // функция округления результата
 fun roundTheNumber(numInDouble: Double): String {
 

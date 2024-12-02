@@ -85,7 +85,13 @@ fun HomeScreen(
         Spacer(modifier = Modifier.size(15.dp))
         Button(
             onClick = {
-                navController.navigate("results/$num1/$num2")
+                if (num1.isNotEmpty() and num2.isNotEmpty()) {
+                    navController.navigate("results/$num1/$num2")
+                } else {
+                    num1 = "0"
+                    num2 = "0"
+                    navController.navigate("results/$num1/$num2")
+                }
             },
             modifier = Modifier.padding(15.dp),
             colors = ButtonDefaults.buttonColors(Color(0xFFFF778E)),
