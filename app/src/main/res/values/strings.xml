@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">BMI Calc</string>
+    <string name="deficit_weight">Дефицит массы тела</string>
+    <string name="normal_weight">Нормальная масса тела</string>
+    <string name="overweight">Избыточный вес</string>
+    <string name="obesity">Ожирение</string>
+    <string name="morbid_obesity">Морбидное ожирение</string>
+    <string name="no_values"> </string>
+    <string name="no_values_desc">Введите ненулевые значения </string>
+    <string name="values_correct"> </string>
+    <string name="values_correct_desc">Введите корректные значения </string>
+    <string name="deficit_weight_desc">Низкий риск для здоровья (повышен риск других заболеваний)</string>
+    <string name="normal_weight_desc">Питайтесь правильно. Занимайтесь физкультурой. Контролируйте свой вес.</string>
+    <string name="overweight_desc">Есть риск развития осложнений. Необходимо пройти всестороннее клиническое обследование. Подумайте о своём здоровье. Измените питание и уровень физических нагрузок.</string>
+    <string name="obesity_desc">Высокий риск развития заболеваний, связанных с ожирением. Следует обратиться к врачу для обследования и составления индивидуальной программы по снижению массы тела.</string>
+    <string name="morbid_obesity_desc">Риск для здоровья очень высок. Уже имеются заболевания различных органов и систем организма. Следует незамедлительно обратиться к врачу. Необходимо срочное обследование и лечение не только ожирения, но и уже существующих осложнений.</string>
+
+
+</resources>
