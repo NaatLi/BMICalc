@@ -33,7 +33,10 @@ fun Nav() {
         ) {backstackEntry ->
             ResultsScreen(
                 num1 = backstackEntry.arguments!!.getString("num1"),
-                num2 = backstackEntry.arguments!!.getString("num2")
+                num2 = backstackEntry.arguments!!.getString("num2"),
+                onBackClicked = {
+                    navController.navigateUp()
+                }
             )
 
         }

@@ -26,6 +26,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.bmicalc.SimpleToolbar
 import kotlin.math.pow
 
 @Composable
@@ -38,75 +39,79 @@ fun HomeScreen(
     var num2 by rememberSaveable { mutableStateOf("") }
 
     Column(
-
-        horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.padding(20.dp).fillMaxSize()
+        modifier = Modifier
     ) {
-        Text(
-            "Калькулятор",
-            modifier = Modifier.padding(20.dp),
-            color = Color(0xFF5777b4),
-            style = MaterialTheme.typography.displaySmall
-        )
-        Text(
-            "Для расчета ИМТ введите ваши значения роста и веса в поля ввода:",
-            modifier = Modifier.padding(20.dp),
-            color = Color.Gray,
-            style = MaterialTheme.typography.titleLarge
-        )
-        OutlinedTextField(
-            value = num2,
-            onValueChange = { num2 = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            singleLine = true,
-            label = { Text("Введите рост", style = MaterialTheme.typography.titleLarge) },
-            modifier = Modifier.padding(10.dp),
-            textStyle = TextStyle(
-                fontWeight = FontWeight.Medium,
-                fontSize = 24.sp,
-                color = Color(0xFFFB9DAE)
-            ),
-            //focusedContainerColor = Color(0xFF5777b4),
-            //cursorColor = Color(0xFF5777b4)
-        )
-        OutlinedTextField(
-            value = num1,
-            onValueChange = { num1 = it },
-            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
-            singleLine = true,
-            label = { Text("Введите вес", style = MaterialTheme.typography.titleLarge) },
-            modifier = Modifier.padding(10.dp),
-            textStyle = TextStyle(
-                fontWeight = FontWeight.Medium,
-                fontSize = 24.sp,
-                color = Color(0xFFFB9DAE)
-            )
-        )
-        Spacer(modifier = Modifier.size(15.dp))
-        Button(
-            onClick = {
-                if (num1.isNotEmpty() and num2.isNotEmpty()) {
-                    navController.navigate("results/$num1/$num2")
-                } else {
-                    num1 = "0"
-                    num2 = "0"
-                    navController.navigate("results/$num1/$num2")
-                }
-            },
-            modifier = Modifier.padding(15.dp),
-            colors = ButtonDefaults.buttonColors(Color(0xFFFF778E)),
-            shape = RoundedCornerShape(15.dp),
-        )
-        {
+        SimpleToolbar(title = "Калькулятор ИМТ")
+
+        Column(
+
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.padding(20.dp).fillMaxSize()
+        ) {
             Text(
-                "Рассчитать ИМТ",
-                modifier = Modifier.padding(5.dp),
-                style = MaterialTheme.typography.headlineMedium
+                "Для расчета ИМТ введите ваши значения роста и веса в поля ввода:",
+                modifier = Modifier.padding(20.dp),
+                color = Color.Gray,
+                style = MaterialTheme.typography.titleLarge
             )
+            OutlinedTextField(
+                value = num2,
+                onValueChange = { num2 = it },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                singleLine = true,
+                label = { Text("Введите рост", style = MaterialTheme.typography.titleLarge) },
+                modifier = Modifier.padding(10.dp),
+                textStyle = TextStyle(
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 24.sp,
+                    color = Color(0xFFFB9DAE)
+                ),
+                //focusedContainerColor = Color(0xFF5777b4),
+                //cursorColor = Color(0xFF5777b4)
+            )
+            OutlinedTextField(
+                value = num1,
+                onValueChange = { num1 = it },
+                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                singleLine = true,
+                label = { Text("Введите вес", style = MaterialTheme.typography.titleLarge) },
+                modifier = Modifier.padding(10.dp),
+                textStyle = TextStyle(
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 24.sp,
+                    color = Color(0xFFFB9DAE)
+                )
+            )
+            Spacer(modifier = Modifier.size(15.dp))
+            Button(
+                onClick = {
+                    if (num1.isNotEmpty() and num2.isNotEmpty()) {
+                        navController.navigate("results/$num1/$num2")
+                    } else {
+                        num1 = "0"
+                        num2 = "0"
+                        navController.navigate("results/$num1/$num2")
+                    }
+                },
+                modifier = Modifier.padding(15.dp),
+                colors = ButtonDefaults.buttonColors(Color(0xFFFF778E)),
+                shape = RoundedCornerShape(15.dp),
+            )
+            {
+                Text(
+                    "Рассчитать ИМТ",
+                    modifier = Modifier.padding(5.dp),
+                    style = MaterialTheme.typography.headlineMedium
+                )
+            }
+            Spacer(modifier = Modifier.size(15.dp))
+
         }
-        Spacer(modifier = Modifier.size(15.dp))
+
 
     }
+
+
 
 }
 
